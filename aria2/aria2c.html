@@ -47,16 +47,16 @@
             <a href="/storage" target="_blank">Dir</a>
         </p>
 
-        <form target="_blank" method="post" action="#" onclick="aria2c.rpc('aria2.addUri',[[this.url.value]]);return false">
+        <form target="_blank" method="post" action="#addUri" onclick="aria2c.rpc('aria2.addUri',[[this.url.value]]);return false">
             Url : <input type="text" name="url">
             <!-- Connections : <input type="text" name="connections" value="5" style="width: 100px"> Dir : <input type="text" name="dir" value="f/" style="width: 100px"> -->
             <input type="submit" value="Add">
         </form>
 
         <p>
-            <a href="#" onclick="ui.status='all';return false">All Status</a>
-            <a href="#" onclick="ui.status='running';return false">Active</a>
-            <a href="#" onclick="ui.status='finished';return false">Finished</a>
+            <a href="#all" onclick="ui.status='all';return false">All Status</a>
+            <a href="#running" onclick="ui.status='running';return false">Active</a>
+            <a href="#finished" onclick="ui.status='finished';return false">Finished</a>
         </p>
 
         <table>
@@ -77,16 +77,16 @@
         </table>
 
         <p>
-            <a href="#" onclick="aria2c.rpc('aria2.purgeDownloadResult',[]);return false">Remove All Finished</a>
-            <a href="#" onclick="aria2c.rpc('aria2.pauseAll',[]);return false">Pause All</a>
-            <a href="#" onclick="aria2c.rpc('aria2.unpauseAll',[]);return false">Unpause All</a>
+            <a href="#purge" onclick="aria2c.rpc('aria2.purgeDownloadResult',[]);return false">Remove All Finished</a>
+            <a href="#pauseAll" onclick="aria2c.rpc('aria2.pauseAll',[]);return false">Pause All</a>
+            <a href="#unpauseAll" onclick="aria2c.rpc('aria2.unpauseAll',[]);return false">Unpause All</a>
         </p>
 
         <p id="status"></p>
 
         <p>
-            <a href="#" onclick="ui.refresh=10;interval();return false">Refresh Now</a>
-            <a href="#" onclick="ui.refresh=0;return false">Stop Refresh</a>
+            <a href="#refresh" onclick="ui.refresh=10;interval();return false">Refresh Now</a>
+            <a href="#stopRefresh" onclick="ui.refresh=0;return false">Stop Refresh</a>
         </p>
     </div>
 
@@ -134,7 +134,7 @@
                 ret += `<td>`;
                 for (let x1 in v.files) {
                     let v1 = v.files[x1];
-                    ret += `<div><a href="${v1.path.substr(v.dir.length - 'storage/'.length)}">${basename(v1.path)}</a></div>`;
+                    ret += `<div><a href="${v1.path.substr(v.dir.length - 'storage/'.length)}" download>${basename(v1.path)}</a></div>`;
                 }
                 ret += `</td>`;
 
@@ -159,13 +159,13 @@
 
                 ret += `<td>`;
                 if (v.status == 'active') {
-                    ret += `<a href="#" onclick="aria2c.rpc('aria2.pause',['${v.gid}']);return false">pause</a>`;
+                    ret += `<a href="#pause" onclick="aria2c.rpc('aria2.pause',['${v.gid}']);return false">pause</a>`;
                 }
                 if (v.status == 'paused') {
-                    ret += `<a href="#" onclick="aria2c.rpc('aria2.unpause',['${v.gid}']);return false">unpause</a>`;
+                    ret += `<a href="#unpause" onclick="aria2c.rpc('aria2.unpause',['${v.gid}']);return false">unpause</a>`;
                 }
                 if (v.status == 'waiting') {
-                    ret += `<a href="#" onclick="aria2c.rpc('aria2.remove',['${v.gid}']);return false">remove</a>`;
+                    ret += `<a href="#remove" onclick="aria2c.rpc('aria2.remove',['${v.gid}']);return false">remove</a>`;
                 }
                 ret += `</td>`;
 
