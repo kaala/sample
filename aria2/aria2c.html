@@ -178,11 +178,11 @@
             el.innerHTML = ret;
 
             let stat = ``;
-            stat += `<span>downloadSpeed: ${ui.info['downloadSpeed']}</span>`;
-            stat += `<span>uploadSpeed: ${ui.info['uploadSpeed']}</span>`;
-            stat += `<span>numActive: ${ui.info['numActive']}</span>`;
-            stat += `<span>numWaiting: ${ui.info['numWaiting']}</span>`;
-            stat += `<span>numStopped: ${ui.info['numStopped']}</span>`;
+            stat += `<span>downloadSpeed: ${formatBytes(ui.info['downloadSpeed'])}</span>`;
+            stat += `<span>uploadSpeed: ${formatBytes(ui.info['uploadSpeed'])}</span>`;
+            stat += `<span>numActive: ${formatBytes(ui.info['numActive'])}</span>`;
+            stat += `<span>numWaiting: ${formatBytes(ui.info['numWaiting'])}</span>`;
+            stat += `<span>numStopped: ${formatBytes(ui.info['numStopped'])}</span>`;
 
             var ss = document.querySelector('#status');
             ss.innerHTML = stat;
