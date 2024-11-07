@@ -142,13 +142,10 @@
                 if (v.status == 'active') {
                     ret += `<a href="#" onclick="aria2c.rpc('aria2.pause',['${v.gid}']);return false">${v.status}</a>`;
                 }
-                if (v.status == 'paused') {
+                else if (v.status == 'paused') {
                     ret += `<a href="#" onclick="aria2c.rpc('aria2.unpause',['${v.gid}']);return false">${v.status}</a>`;
                 }
-                if (v.status == 'complete') {
-                    ret += `<a>${v.status}</a>`;
-                }
-                if (v.status == 'error') {
+                else (v.status == 'complete') {
                     ret += `<a>${v.status}</a>`;
                 }
                 ret += `</td>`;
