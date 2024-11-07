@@ -145,7 +145,7 @@
                 else if (v.status == 'paused') {
                     ret += `<a href="#" onclick="aria2c.rpc('aria2.unpause',['${v.gid}']);return false">${v.status}</a>`;
                 }
-                else (v.status == 'complete') {
+                else {
                     ret += `<a>${v.status}</a>`;
                 }
                 ret += `</td>`;
