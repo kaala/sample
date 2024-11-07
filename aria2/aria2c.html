@@ -159,12 +159,12 @@
 
                 ret += `<td>`;
                 if (v.status == 'active') {
-                    ret += `<a href="#" onclick="aria2c.rpc('aria2.pause',['${v.gid}']);return false">${v.status}</a>`;
+                    ret += `<a href="#" onclick="aria2c.rpc('aria2.pause',['${v.gid}']);return false">pause</a>`;
                 }
                 if (v.status == 'paused') {
-                    ret += `<a href="#" onclick="aria2c.rpc('aria2.unpause',['${v.gid}']);return false">${v.status}</a>`;
+                    ret += `<a href="#" onclick="aria2c.rpc('aria2.unpause',['${v.gid}']);return false">unpause</a>`;
                 }
-                if (v.status == 'error') {
+                if (v.status == 'waiting') {
                     ret += `<a href="#" onclick="aria2c.rpc('aria2.remove',['${v.gid}']);return false">remove</a>`;
                 }
                 ret += `</td>`;
